@@ -1,0 +1,52 @@
+set seed: 2 ...
+seed =  2
+setting random projection strategy: sparse(3.0 ...)
+outputs/cora/
+True
+reset embedding_size => 512
+key =  feat
+key =  node_label
+loading cache: ./cache/cora.p
+nrl time:  0.0017690658569335938
+using NRL embeddings for featureless nodetype: _N
+reset input_drop_rate => 0.1
+reset drop_rate => 0.4
+reset hidden_size => 64
+reset squash_k => 3
+reset num_epochs => 500
+reset patience => 50
+train_rate = 1.0	valid_rate = 0.620891161431702	test_rate = 0.620891161431702
+start pre-computation ...
+512
+start feat propagate-then-update iteration 0 ...
+paper
+start feat propagate-then-update iteration 1 ...
+paper
+start feat propagate-then-update iteration 2 ...
+paper
+add input x to ('even', ('_N', '_E', '_N'))
+target_sorted_keys:  [('odd', ('_N', '_E', '_N')), ('even', ('_N', '_E', '_N'))]
+pre_compute time:  6.538040637969971
+create model ====
+number of params: 148254
+get seen ...
+get seen ...
+get seen ...
+early_stop_metric_names = ['macro_f1', 'micro_f1']
+create optimizer ...
+start epoch 0:
+  0%|          | 0/1 [00:00<?, ?it/s]  0%|          | 0/1 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "main_rphgnn.py", line 449, in <module>
+    train_and_eval()
+  File "main_rphgnn.py", line 394, in train_and_eval
+    model.fit(
+  File "/home/tju/mxd/CLGNN-main/rphgnn/layers/torch_train_model.py", line 245, in fit
+    train_logs = self.train_epoch(epoch, train_data)
+  File "/home/tju/mxd/CLGNN-main/rphgnn/layers/torch_train_model.py", line 189, in train_epoch
+    batch_result = self.train_step(batch_data,epoch)
+  File "/home/tju/mxd/CLGNN-main/rphgnn/layers/torch_train_model.py", line 438, in train_step
+    logits, loss = self.cl_forward_and_compute_loss(batch_x, batch_y, batch_train_mask,epoch)
+  File "/home/tju/mxd/CLGNN-main/rphgnn/layers/torch_train_model.py", line 414, in cl_forward_and_compute_loss
+    loss = ce_loss + cl_loss * self.cl_rate
+TypeError: unsupported operand type(s) for *: 'Tensor' and 'NoneType'

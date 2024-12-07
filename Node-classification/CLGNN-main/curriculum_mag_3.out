@@ -1,0 +1,40 @@
+set seed: 3 ...
+seed =  3
+setting random projection strategy: sparse(3.0 ...)
+outputs/leaderboard_mag/
+True
+reset embedding_size => 512
+set data:  author
+start random feature
+set data:  field_of_study
+start random feature
+set data:  institution
+start random feature
+key =  feat
+key =  year
+key =  label
+reset input_drop_rate => 0.1
+reset drop_rate => 0.4
+reset hidden_size => 512
+reset squash_k => 3
+reset num_epochs => 500
+reset patience => 50
+train_rate = 0.8549435149085606	valid_rate = 0.08810424924869872	test_rate = 0.05695223584274073
+start pre-computation ...
+using new train_label_feat
+/home/tju/mxd/CLGNN-main/rphgnn/layers/rphgnn_pre.py:260: RuntimeWarning: divide by zero encountered in divide
+  inv_deg = 1.0 / deg
+start pre-label propagate-then-update iteration 0 ...
+diag zero to mean for: paper ('even', 2, ('paper', 'r.writes', 'author')) 43108
+diag==== ('even', 2, ('paper', 'r.writes', 'author'))
+remove diag for: paper ('even', 2, ('paper', 'r.writes', 'author'))
+diag zero to mean for: paper ('even', 2, ('paper', 'cites', 'paper')) 5889
+diag==== ('even', 2, ('paper', 'cites', 'paper'))
+remove diag for: paper ('even', 2, ('paper', 'cites', 'paper'))
+diag zero to mean for: paper ('even', 2, ('paper', 'has_topic', 'field_of_study')) 0
+diag==== ('even', 2, ('paper', 'has_topic', 'field_of_study'))
+remove diag for: paper ('even', 2, ('paper', 'has_topic', 'field_of_study'))
+add homo for label:  ('odd', ('paper', 'cites', 'paper'))
+target_sorted_keys:  [('even', ('paper', 'r.writes', 'author')), ('odd', ('paper', 'cites', 'paper')), ('even', ('paper', 'cites', 'paper')), ('even', ('paper', 'has_topic', 'field_of_study'))]
+start feat propagate-then-update iteration 0 ...
+Killed
